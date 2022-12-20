@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Broad Market Indices</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../static/table-05/css/style.css">
+
+</head>
+<body>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Broad Market Indices</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table table-responsive-xl">
+                        <thead>
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Index Name</th>
+                            <th>List Link</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        {% for index_data in index_datas %}
+                            <tbody>
+                            <tr class="alert" role="alert">
+                                <td>{{ index_data.count }}</td>
+                                <td>{{ index_data.indexName }}</td>
+                                <td>
+                                    <a href="{{ url_for('index',end = index_data.index_url_endings) }}">View</a>
+                                </td>
+                                <td class="status"><span class="{{ index_data.status }}">{{ index_data.status }}</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="../static/table-05/js/jquery.min.js"></script>
+<script src="../static/table-05/js/popper.js"></script>
+<script src="../static/table-05/js/bootstrap.min.js"></script>
+<script src="../static/table-05/js/main.js"></script>
+
+</body>
+</html>
+
